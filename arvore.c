@@ -41,9 +41,41 @@ else{
 }
 return raiz;
 
+} 
+node* buscarno(node*raiz, int valor){
+    if(raiz == NULL){
+        return NULL;
+
+    }
+    else if(valor == raiz->valor){
+        return raiz;
+    }
+    else if(valor < raiz->valor){
+        return buscarno(raiz->esquerda, valor);
+    }
+    else {
+
+        return buscarno(raiz->direita, valor);
+    }
+    
+
+
 }
  
 int main (){
+    node* raiz = NULL;
+    raiz = inserirno(raiz,12);
+   int valor;
+   printf("Escolha o nó que vai buscar\n");
+   scanf("%d", &valor);
+  node* noencontrado = buscarno(raiz, valor);
+   if (noencontrado != NULL) {
+        printf("No com o valor %d encontrado!\n", noencontrado->valor);
+    } else {
+        printf("No com o valor %d nao encontrado na arvore.\n", valor);
+    }
+
+
 
 
 
