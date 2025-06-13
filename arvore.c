@@ -25,6 +25,23 @@ if (novono == NULL){
 
 
 }
+node* inserirno(node* raiz, int valor){
+
+if(raiz == NULL){
+    return criarno(valor);
+}
+if(valor < raiz->valor){
+    raiz->esquerda = inserirno(raiz->esquerda, valor);
+}
+else if(valor > raiz->valor){
+    raiz->direita = inserirno(raiz->direita, valor);
+}
+else{
+    printf("o valor já existe na árvore, portanto nao sera inserido");
+}
+return raiz;
+
+}
  
 int main (){
 
